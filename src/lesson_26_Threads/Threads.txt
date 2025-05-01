@@ -1,0 +1,123 @@
+Threads in Java
+===============
+A Thread in Java is a small unit of a process.
+It is like a mini-task that runs inside your program independently, but alongside other tasks.
+
+You can think of it like:
+🧠 Your brain can listen to music 🎵 and write notes ✍️ at the same time.
+Each task is like a Thread. They run simultaneously without waiting for each other.
+
+🛠️ Why do we use Threads?
+-To perform multiple tasks at the same time (concurrently).
+-To make programs faster and more responsive.
+-Useful when dealing with long-running tasks like:
+ Downloading files
+ Reading from a large file
+
+
+🆚 Without Threads vs With Threads
+🚫 Without Threads:
+Each task runs one after another. The second task will wait until the first one is finished.
+
+✅ With Threads:
+Tasks can run at the same time. No need to wait.
+
+
+How to Create Threads in Java Program
+=====================================
+Java provides two main ways to create threads:
+✅ 1. Extending the Thread class
+✅ 2. Implementing the Runnable interface
+
+
+✅ Understanding Thread Lifecycle
+Thread is created when you create an object of the Thread class.
+Thread is started when you call .start() on that object.
+The run() method contains the code that the new thread will execute.
+
+Point to Remember
+✅ If you don't explicitly create a thread, Java automatically creates one thread for you.
+This is called the main thread.
+
+
+🔹 What is the main Thread?
+When you run any Java program, the JVM (Java Virtual Machine) creates a thread called main.
+And main thread start the execution of your program.
+This is the thread that runs the code inside your main() method.
+
+An example that shows both the main thread and a custom thread running together
+
+
+🧵 Thread vs 🧩 Process — Simple Analogy
+Imagine a process as a whole app (like MS Word), and threads as mini tasks inside it
+(like typing, spell check, auto-save).
+
+📘 Definition
+Concept	        Process	                                     Thread
+Meaning	        A self-contained program in execution	     A small unit of execution inside a process
+Resource	Has its own memory, files, etc.	             Shares memory/resources with other threads
+Isolation	Completely isolated from other processes     Not isolated — threads share data
+
+Point to Note-
+When you run a .java file (with main()), the JVM creates one process.
+JVM = Java Process
+Inside that process, one thread is automatically created: main
+
+🧠 Visual Example
+Imagine:
+Process = House 🏠
+Threads = People living and doing different tasks in the house (cooking, cleaning, watching TV)
+Each person (thread) can do their work in parallel, 
+but they share the same kitchen, electricity, space (memory/resources).
+
+🧵 Thread Lifecycle in Java
+A thread in Java goes through 5 main stages:
+New
+Runnable
+Running
+Blocked / Waiting / Sleeping (optional)
+Terminated (Dead)
+
+New - 
+The thread object is created, but it has not started yet.
+Thread t = new MyThread();  // Thread is in NEW state
+🧠 Think of this like hiring someone for a job but not giving them work yet.
+
+Runnable - 
+You called t.start()
+Now thread is ready to run, and waiting for the CPU to schedule it.
+t.start();  // Now it's in Runnable state
+🧠 Think of it as a worker in a queue, ready to start work, waiting for CPU's "go ahead".
+
+Running - 
+The thread is actually executing the run() method now.
+public void run() {
+    // This code runs when thread is in Running state
+}
+🧠 The worker is now on the job doing the task assigned.
+
+
+Blocked / Waiting / Sleeping (Temporary Paused States)
+a. Sleeping – Thread.sleep(1000);
+Temporarily paused for a duration.
+
+b. Waiting – wait() method (until notified)
+Waiting for another thread to notify it.
+
+c. Blocked – Trying to access a resource locked by another thread.
+Common in synchronization.
+
+Worker is taking a break, waiting for coffee, or waiting for someone else to finish using a shared tool.
+
+Terminated (Dead)
+The thread has finished execution or was forcibly stopped.
+
+🧠 The worker has finished the job and gone home.
+
+
+✅ Common Thread Methods in Java
+Method			Description
+start()			Starts a new thread — calls the run() method internally
+run()			Contains the code that will be executed by the thread
+sleep(milliseconds)	Pauses the thread for a specified time (without releasing the lock)
+join()			Waits for one thread to finish before continuing

@@ -6,11 +6,12 @@ public class Student {
 
 	public static void main(String[] args) {
 		
-		ArrayList<String> studentlist = new ArrayList<>();
+		List<String> studentlist = new ArrayList<>();
 		
-		studentlist.add("Pankaj");
-		studentlist.add("Sunit");
-		studentlist.add("Anil");
+		studentlist.add("Yash");
+		studentlist.add("Yash");
+		studentlist.add("Yash");
+		studentlist.add("Yash");
 		
 		System.out.println(studentlist);		
 		

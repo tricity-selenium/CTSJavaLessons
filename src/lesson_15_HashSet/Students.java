@@ -1,6 +1,7 @@
 package lesson_15_HashSet;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Students {
 
@@ -18,8 +19,11 @@ public class Students {
 		System.out.println(student.contains("Amit"));
 		System.out.println(student.isEmpty());
 		
-		
-
+		Iterator<String> it = student.iterator();
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
 	}
 
 }

@@ -1,6 +1,8 @@
 package lesson_14_HasMap;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Students {
 
@@ -22,6 +24,13 @@ public class Students {
 		
 		System.out.println(students.containsValue("Praveen"));
 		
+		Iterator<Map.Entry<Integer, String>> it = students.entrySet().iterator();
+		
+		while(it.hasNext())
+		{
+		 Map.Entry<Integer, String>	 entry = it.next();
+		 System.out.println(entry.getKey() + "   " + entry.getValue());
+		}
 		
 
 	}

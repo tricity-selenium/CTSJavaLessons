@@ -4,12 +4,24 @@ public class WhileLoop {
 
 	public static void main(String[] args) {
 		
-		int a = 10;
-		
-		while(a <= 5)
+		int orgnum = 1551;
+		int num = orgnum;
+		int rev = 0;
+				
+		while(num > 0)
 		{
-			System.out.println(a);
-			a++;
+			int rem = num%10;
+			rev = rev*10 + rem;
+			num/=10;
+		}
+		
+		if(orgnum == rev)
+		{
+			System.out.println("Pelindrome");
+		}
+		else
+		{
+			System.out.println("NOT bPelindrome");
 		}
 		
 		
